@@ -10,10 +10,7 @@
 import UIKit
 import UserNotifications
 
-import Parse
-
-// If you want to use any of the UI components, uncomment this line
-// import ParseUI
+import ParseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,13 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.isLocalDatastoreEnabled = true
         }
         Parse.initialize(with: configuration)
-
-        // ****************************************************************************
-        // If you are using Facebook, uncomment and add your FacebookAppID to your bundle's plist as
-        // described here: https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/
-        // Uncomment the line inside ParseStartProject-Bridging-Header and the following line here:
-        // PFFacebookUtils.initializeFacebook()
-        // ****************************************************************************
 
         PFUser.enableAutomaticUser()
 
@@ -132,16 +122,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //     if application.applicationState == UIApplicationState.Inactive {
     //         PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
     //     }
-    // }
-
-    //--------------------------------------
-    // MARK: Facebook SDK Integration
-    //--------------------------------------
-
-    ///////////////////////////////////////////////////////////
-    // Uncomment this method if you are using Facebook
-    ///////////////////////////////////////////////////////////
-    // func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    //     return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication, session:PFFacebookUtils.session())
     // }
 }

@@ -11,7 +11,7 @@ env:
 jobs:
   publish-docs:
     if: github.event.inputs.tag != ''
-    runs-on: macos-12
+    runs-on: macos-13
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
       - name: Submodules
         run: |
           git submodule update --init --recursive
-          sudo gem install bundler
+          sudo gem install bundler -v 2.4.22
           bundle config path vendor/bundle
       - name: Bundle Install
         if: steps.cache-gems.outputs.cache-hit != 'true'
